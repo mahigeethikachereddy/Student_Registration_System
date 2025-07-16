@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title that appears in browser tab -->
+    <title>Student Registration System</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    
+    <!-- 
+        Note: If using Google Fonts or other external resources, 
+        they would be linked here as well 
+    -->
+</head>
+<body>
+    <!-- 
+        HEADER SECTION
+        Contains the main title and description of the application 
+    -->
+    <header>
+        <h1>Student Registration System</h1>
+        <p>A system to register, edit, and manage student records efficiently</p>
+    </header>
+
+    <!-- 
+        MAIN CONTENT AREA 
+        Contains two primary sections: registration form and records display
+    -->
+    <main>
+        <!-- 
+            REGISTRATION FORM SECTION
+            Contains all form elements for adding/editing student data
+        -->
+        <section class="registration-form">
+            <h2>Register New Student</h2>
+            
+            <!-- 
+                FORM ELEMENT
+                - id="studentForm" is used for JavaScript form submission handling
+                - All input fields have both IDs (for JS access) and labels (for accessibility)
+            -->
+            <form id="studentForm">
+                <!-- 
+                    FORM GROUP 1: Student Name 
+                    - Each form group contains label, input, and error message span
+                    - required attribute enables browser validation
+                -->
+                <div class="form-group">
+                    <label for="name">Student Name:</label>
+                    <input type="text" id="name" placeholder="Enter full name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                
+                <!-- FORM GROUP 2: Student ID -->
+                <div class="form-group">
+                    <label for="id">Student ID:</label>
+                    <input type="text" id="id" placeholder="Enter student ID" required>
+                    <span class="error-message" id="idError"></span>
+                </div>
+                
+                <!-- FORM GROUP 3: Email -->
+                <div class="form-group">
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" placeholder="Enter email address" required>
+                    <!-- 
+                        type="email" provides basic email validation
+                        More robust validation happens in JavaScript
+                    -->
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <!-- FORM GROUP 4: Contact Number -->
+                <div class="form-group">
+                    <label for="contact">Contact No:</label>
+                    <input type="text" id="contact" placeholder="Enter contact number" required>
+                    <span class="error-message" id="contactError"></span>
+                </div>
+                
+                <!-- FORM GROUP 5: Class -->
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <input type="text" id="class" placeholder="Enter class" required>
+                    <span class="error-message" id="classError"></span>
+                </div>
+                
+                <!-- FORM GROUP 6: Address (not required) -->
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" placeholder="Enter address"></textarea>
+                    <!-- 
+                        Note: No error message for address since it's optional
+                        Textarea doesn't need type attribute
+                    -->
+                </div>
+                
+                <!-- 
+                    FORM ACTION BUTTONS
+                    - submitBtn: Default visible for new registrations
+                    - updateBtn/cancelBtn: Hidden until edit mode is activated
+                    - JavaScript will control visibility during edit operations
+                -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn">Register</button>
+                    <button type="button" id="updateBtn" style="display: none;">Update</button>
+                    <button type="button" id="cancelBtn" style="display: none;">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 
+            RECORDS DISPLAY SECTION
+            Shows all registered students in a table with search functionality
+        -->
+        <section class="records-section">
+            <h2>Student Records</h2>
+            
+            <!-- Search box for filtering records -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search students...">
+            </div>
+            
+            <!-- Scrollable container for the records table -->
+            <div class="records-container">
+                <!-- 
+                    STUDENT RECORDS TABLE
+                    - thead contains column headers
+                    - tbody (studentTableBody) will be populated dynamically by JavaScript
+                -->
+                <table id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Class</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                            <!-- 
+                                Actions column will contain edit/delete buttons
+                                added by JavaScript for each record
+                            -->
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <!-- 
+                            DYNAMIC CONTENT AREA
+                            JavaScript will:
+                            1. Create table rows (<tr>) here for each student
+                            2. Fill each row with cells (<td>) of student data
+                            3. Add action buttons in the last cell
+                            
+                            When empty, JavaScript can show a "No records" message
+                        -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+        FOOTER SECTION
+        Basic copyright information
+        Could be expanded with additional links/information
+    -->
+    <footer>
+        <p>© 2023 Student Registration System</p>
+    </footer>
+
+    <!-- 
+        JAVASCRIPT LINK
+        Placed at bottom of body for better page load performance
+        - Loads after HTML is parsed
+        - Contains all interactive functionality:
+          * Form validation
+          * LocalStorage operations
+          * Dynamic table generation
+          * Search filtering
+          * Edit/Delete operations
+    -->
+    <script src="script.js"></script>
+</body>
+</html>
