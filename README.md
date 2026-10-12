@@ -17,12 +17,12 @@ A web application for managing student records with registration, editing, and d
 - HTML5
 - CSS3
 - JavaScript (ES6)
-- LocalStorage for data persistence
+- localStorage for data persistence
 
 ## Validation Rules
 
 - **Name**: Only letters and spaces allowed
-- **Student ID**: Only numbers allowed, must be unique
+- **Student ID**: Only numbers allowed; must be unique
 - **Email**: Must be a valid email format
 - **Contact**: Only numbers, 10-15 digits
 - **Class**: Required field
@@ -40,7 +40,7 @@ A web application for managing student records with registration, editing, and d
 No installation required. Just open the `index.html` file in a web browser.
 
 ## Git Hub Link
-https://github.com/maggie-369
+https://github.com/mahigeethikachereddy
 
 ## Gut Hub Student-Registration-System
-https://github.com/maggie-369/Student_Registration_System
+https://github.com/mahigeethikachereddy/Student_Registration_System
